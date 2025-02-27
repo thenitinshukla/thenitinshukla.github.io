@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitin Shukla</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="container-fluid">
+            <div class="nav-container">
+                <a href="#hero" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="14" fill="#000"/>
+                        <text x="9" y="21" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="900" fill="#fff">NS</text>
+                    </svg>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#bio">Short Bio</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="mailto:n.shukla@cineca.it">Contact</a>
+                    </li>
+                </ul>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <!-- Mobile Navigation Panel -->
+        <div class="mobile-nav-panel">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <ul class="mobile-nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#bio">Short Bio</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#blog">Blog</a></li>
+              <!--<li><a href="/cdn-cgi/l/email-protection#9df5b5e8f3eef0f7fadbf8f2f5fef8fab5f2ef">Contact</a></li> -->
+                <li><a href="javascript:void(0)" onclick="openEmailEditor('n.shukla@cineca.it')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-1 order-2 text-lg-start text-center">
+                        <div class="text-block">
+                            <h1>Nitin Shukla</h1>
+                            <h3>HPC Application Engineer</h3>
+                            <h6>via Magnanelli 2, CINECA Italy</h6>
+                            <p>Plasma Physicist with a passion for high-performance computing and astrophysical simulations</p>
+                            <div class="download-links mt-3">
+                                <a href="cv/Shukla_CV.pdf" class="btn btn-sm btn-outline-dark me-2" download>
+                                    <i class="fas fa-file-pdf"></i> Download CV
+                                </a>
+                            </div>
+                            <div class="social-icons mt-4">
+                                <a href="https://github.com/thenitinshukla"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/nitin-shukla-0670b21a/"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://x.com/thenitinshukla"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2 order-1 text-center mb-lg-0 mb-4">
+                        <img src="nitin.jpg" class="img-fluid profile-image" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p> I'm a computational plasma physicist who works with some of Europe's most powerful supercomputers. 
+                            I run large simulations to understand how magnetic fields form from nothing.
+                            I focus on phenomena like the Weibel Instability and the Biermann Battery, 
+                            which help explain both lab experiments and space processes.
+                            With my background in plasma physics and advanced computing, I aim to expand our understanding of plasma behavior.
+                        </p>
+                        <p>As an HPC Application Engineer, I spend my days:</p>
+                        <ul>
+                            <li>Building parallel algorithms to crunch data faster</li>
+                            <li>Tweaking codes to run smoothly on GPUs</li>
+                            <li>Creating guides and resources to help other researchers master parallel computing</li>
+                        </ul>
+                        <p> My aim is simple: make computing more efficient so researchers can get solid answers quicker.
+                            Right now, I’m leading the SPACE Center of Excellence at CINECA, where we’re upgrading astrophysical codes to handle the next big challenges in computing.
+                            It’s all about finding smarter ways to solve tough problems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bio" class="section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Short Bio</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="mb-4">Education</h3>
+                        <div class="timeline-modern">
+                            <div class="timeline-modern-item">
+                                <div class="timeline-modern-period">2013 - 2019</div>
+                                <div class="timeline-modern-title">Ph.D. in Plasma Physics</div>
+                                <div class="timeline-modern-description">
+                                    At <a href="https://tecnico.ulisboa.pt/pt/" target="_blank" class="custom-link">Instituto Superior Técnico (IST), Lisbon Portugal</a><br>
+                                    Investigated small-scale magnetic field generation, Weibel Instability, and HPC simulation frameworks
+                                </div>
+                            </div>
+                            <div class="timeline-modern-item">
+                                <div class="timeline-modern-period">2008 - 2010</div>
+                                <div class="timeline-modern-title">M.Sc. in Physics Engineering</div>
+                                <div class="timeline-modern-description">
+                                    At <a href="https://tecnico.ulisboa.pt/pt/" target="_blank" class="custom-link">Instituto Superior Técnico (IST), Lisbon Portugal</a><br>
+                                    Focused on plasma physics, computational physics, and nanotechnology
+                                </div>
+                            </div>
+                            <div class="timeline-modern-item">
+                                <div class="timeline-modern-period">2005 - 2007</div>
+                                <div class="timeline-modern-title">B.Sc. in Physics</div>
+                                <div class="timeline-modern-description">
+                                    At Kashi Naresh College, Gyanpur, U.P. India
+                                    <br>
+                                    Studied fundamental physics and mathematical methods
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="mb-4">Professional Experience</h3>
+                        <div class="timeline-modern">
+                            <div class="timeline-modern-item">
+                                <div class="timeline-modern-period">2023 - Present</div>
+                                <div class="timeline-modern-title">HPC Application Engineer</div>
+                                <div class="timeline-modern-description">
+                                    Leading HPC initiatives at <a href="https://www.cineca.it/it" target="_blank" class="custom-link">CINECA, Bologna Italy</a> <br>
+                                    specializing in GPU acceleration and exascale-ready astrophysical codes with the <a href="https://www.space-coe.eu/" target="_blank" class="custom-link">SPACE Center of Excellence</a>
+                                </div>
+                            </div>
+                            <div class="timeline-modern-item">
+                                <div class="timeline-modern-period">2020 - 2023</div>
+                                <div class="timeline-modern-title">Junior HPC Engineer</div>
+                                <div class="timeline-modern-description">
+                                    Performance analsysis and optimization of EUROFusion codes and developed HPC training materials at <a href="https://www.cineca.it/it" target="_blank" class="custom-link">CINECA, Bologna Italy</a>
+                                </div>
+                            </div>
+                            <div class="timeline-modern-item">
+                                <div class="timeline-modern-period">2019 - 2020</div>
+                                <div class="timeline-modern-title">Researcher Fellow</div>
+                                <div class="timeline-modern-description">
+                                    <a href="https://golp.tecnico.ulisboa.pt/wp/" target="_blank" class="custom-link"> Group of Lasers and Plasmas</a>, <a href="https://tecnico.ulisboa.pt/pt/" target="_blank" class="custom-link">Instituto Superior Técnico</a>, Lisbon, Portugal
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Projects</h2>
+                    <p class="section-subtitle">Recent work and ongoing initiatives</p>
+                </div>
+                <div class="row projects-row">
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="project-title-area">
+                                    <h4>SPACE CoE</h4>
+                                    <span class="project-period">2023 - Present</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <p>Leading the development of scalable astrophysical codes optimized for exascale computing systems, pushing the boundaries of computational astrophysics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div class="project-title-area">
+                                    <h4>GPU Optimization of DESTINE</h4>
+                                    <span class="project-period">2022 - 2023</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <p>Compiling support of the code RAPS20 by using Spack, Optimisation and performance analysis of the code RAPS20, GPU support to mini application ECWAM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-code-branch"></i>
+                                </div>
+                                <div class="project-title-area">
+                                    <h4>CHEESE-1&2</h4>
+                                    <span class="project-period">2021 - present</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <p>Mentoring activity on performance and portability analysis of XSHELLS and Tandem codes. Adding CUDA support to the code XSHELLS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-atom"></i>
+                                </div>
+                                <div class="project-title-area">
+                                    <h4>EUROFusion</h4>
+                                    <span class="project-period">2020 - 2022</span>
+                                </div>
+                            </div>
+                            <div class="project-body">
+                                <p>High level user support to enhance streamline workflow efficiency and performance analysis of EUTERPE, GENE, STARWALL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Metrics Section -->
+        <section id="publications" class="section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Publications</h2>
+                    <p class="section-subtitle">Research metrics and impacts</p>
+                </div>
+                <div class="row g-4 mb-5" id="metrics-container">
+                    <div class="col-md-4 text-center">
+                        <div class="metric-card">
+                            <div class="metric-value">---</div>
+                            <div class="metric-label">Total Citations</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="metric-card">
+                            <div class="metric-value">--</div>
+                            <div class="metric-label">h-index</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="metric-card">
+                            <div class="metric-value">--</div>
+                            <div class="metric-label">i10-index</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="citation-chart">
+                    <canvas id="publicationsChart"></canvas>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="https://scholar.google.com/citations?user=Fs_mg34AAAAJ" 
+                       target="_blank" 
+                       class="btn btn-custom">
+                        View Full Profile on Google Scholar
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="blog" class="section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Blog</h2>
+                    <p class="section-subtitle">Thoughts and insights</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="blog-card">
+                            <div class="blog-card-header">
+                                <h4 class="blog-card-title">GPU Programming Guide</h4>
+                                <p class="blog-card-date">January 2025</p>
+                            </div>
+                            <div class="blog-card-body">
+                                <p>A comprehensive guide to leveraging GPU technology for scientific computing applications</p>
+                                <a href="https://nikshukla07.medium.com/gpu-programming-guide-8f9e282a764a" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="blog-card">
+                            <div class="blog-card-header">
+                                <h4 class="blog-card-title">Why Flops Aren’t Everything in GPU Computing?</h4>
+                                <p class="blog-card-date"> February 2025</p>
+                            </div>
+                            <div class="blog-card-body">
+                                <p>Explore why raw performance metrics don’t tell the full story </p>
+                                <a href="https://nikshukla07.medium.com/gpu-programming-guide-2-db39cbea2d5b" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>© 2025 Nitin Shukla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
