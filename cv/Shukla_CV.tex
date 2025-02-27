@@ -1,0 +1,247 @@
+%%% LaTeX Template: Designer's CV
+%%%
+%%% Source: http://www.howtotex.com/
+%%% Feel free to distribute this template, but please keep the referal to HowToTeX.com.
+%%% Date: March 2012
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document properties and packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,10pt,final]{memoir}
+
+% misc
+\renewcommand{\familydefault}{bch}	% font
+\pagestyle{empty}					% no pagenumbering
+\setlength{\parindent}{0pt}			% no paragraph indentation
+
+% required packages (add your own)
+\usepackage{flowfram}										% column layout
+\usepackage[top=2.5cm,left=0.5cm,right=0.5cm,bottom=2.5cm]{geometry}% margins
+\usepackage{graphicx}										% figures
+\usepackage{url}											% URLs
+\usepackage[usenames,dvipsnames]{xcolor}					% color
+\usepackage{multicol}										% columns env.
+	\setlength{\multicolsep}{0pt}
+\usepackage{paralist}										% compact lists
+\usepackage{tikz}
+\usepackage{eurosym}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create column layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define length commands
+\setlength{\vcolumnsep}{\baselineskip}
+\setlength{\columnsep}{\vcolumnsep}
+
+% frame setup (flowfram package)
+% left frame
+\newflowframe{0.24\textwidth}{\textheight}{0pt}{0pt}[left]
+	\newlength{\LeftMainSep}
+	\setlength{\LeftMainSep}{0.24\textwidth}
+	\addtolength{\LeftMainSep}{1\columnsep}
+ 
+% small static frame for the vertical line
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+ 
+% content of the static frame
+\begin{staticcontents}{1}
+\hfill
+\tikz{%
+	\draw[loosely dotted,color=RoyalBlue,line width=1.5pt,yshift=0]
+	(0,0) -- (0,\textheight);}%
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% right frame
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define macros (for convience)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Sep}{\vspace{0.8cm}}
+\newcommand{\SmallSep}{\vspace{0.3cm}}
+
+\newenvironment{AboutMe}
+	{\ignorespaces\textbf{\color{RoyalBlue} About me}}
+	{\Sep\ignorespacesafterend}
+	
+\newcommand{\CVSection}[1]
+	{\Large\textbf{#1}\par
+	\SmallSep\normalsize\normalfont}
+
+\newcommand{\CVItem}[1]
+	{\textbf{\color{RoyalBlue} #1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Left frame
+%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+	\hfill
+	\includegraphics[width=0.6\columnwidth]{me}
+	\vspace{-7cm}
+\end{figure}
+
+\begin{flushright}\scriptsize
+	Nitin Shukla\\
+	SuperComputing Applications\\
+	and Innovation Department\\
+	CINECA\\
+	via Magnanelli 6/3 \\
+	40033 Casalecchio di Reno\\
+	Italy\\
+	email: nshukla@tecnico.ulisboa.pt\\
+	mobile: +393516706185\\
+	skype: nitshukla
+\end{flushright}\normalsize
+\framebreak
+
+
+% Right frame
+%%%%%%%%%%%%%%%%%%%%
+\Huge\bfseries {\color{RoyalBlue} Nitin Shukla} \\
+%\Large\bfseries  Graphics designer \\
+
+\normalsize\normalfont
+
+% About me
+\begin{AboutMe}
+I am an enthusiastic and motivated researcher, willing to acquire new skills and expertise to expand my horizons. I am passionate about data science and High Performance Computing. I have proven experience in working independently and in teams. I am a quick learner and an ambitious result-driven hard worker.
+%I routinely teach parallel computing courses such as OpenMP and OpenACC. I have experience in mentoring parallelising serial codes to both the CPU and the GPUs.
+\end{AboutMe}
+
+\vspace{-0.5cm}
+% Skills
+\CVSection{Demonstrated Skills}
+
+\CVItem{Problem solving and strategic thinking}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Development and employment of mathematical modelling and computational techniques for investigating physics problems
+\item Analysis of complex data structures
+\item Use of my experience and knowledge to work around obstacles
+\end{compactitem}
+\Sep
+
+\CVItem{Organizational skills}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Ability to plan and prioritise tasks with the aim of meeting deadlines
+\item Logistic abilities proven by the organisation of postgraduate courses about parallel programming
+\end{compactitem}
+\Sep
+
+\CVItem{Team work and leadership skills}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Ability to carry out interdisciplinary projects involving several researchers with different expertise, as demonstrated by my publication record
+\item Ability to effectively guide teams, as proven by my mentoring roles in NVIDIA hackathon
+\item Ability to work in a multi-cultural environment, as evidenced by the fact that my work activities have been conducted in five different countries
+\end{compactitem}
+\Sep
+
+\CVItem{Communication and presentation skills}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Highly trained in delivering presentations, as demonstrated by my participation to international conferences
+\item Ability to explain difficult concepts to non-specialists, as also shown by the layman articles that I write on medium.com
+\item Ability to teach courses on parallel programming for researchers
+\end{compactitem}
+\Sep
+
+\CVItem{Writing skills}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Concise and clear writing style as shown by my 29 scientific publications in peer-reviewed international journals
+\item Trained in proposal and grant writing with proven track record of success in attracting monetary and computational fundings for my research 
+\end{compactitem}
+\Sep
+
+\CVItem{IT Skills}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Deep knowledge of UNIX/LINUX systems and shell scripting
+\item Routine employment of Python, IDL, Matlab and Mathematica
+\item Very competent on JuliaLang, Fortran, C and C++ programming languages
+\item Able to develop parallel codes using MPI, OpenMP, OpenACC and CUDA
+\item Experience in the use of version control softwares as git and svn
+\item Excellent knowledge of the Office suite and its equivalent for Mac and LINUX  
+\item Routine employment of \LaTeX
+\item Proficient in HTML and CSS
+\item Basic knowledge of SQL
+\item Basic usage of Adobe Illustrator
+\end{compactitem}
+
+\clearpage
+\framebreak
+\framebreak
+
+\CVSection{Education}
+
+I have two independent PhD degrees.
+\SmallSep
+
+\CVItem{2013-2019, PhD II in computational plasma physics at Instituto Superior T\'ecnico (Lisbon, Portugal)}\\
+My studies were based on massively parallel numerical simulations. I gained experience in deploying numerical codes and supporting libraries on a variety of platforms. I wrote scripts in Python, IDL and Matlab to analyse the data obtained from my simulations.\\
+Passed with Distinction.
+\SmallSep
+
+\CVItem{2010-2012, PhD I in theoretical plasma physics at Ume\r{a} Universitet (Ume\r{a}, Sweden)}\\
+I developed theoretical models to describe non-linear plasma dynamics. I wrote scripts in Mathematica to solve complex equations.
+\SmallSep
+
+\CVItem{2008-2010, Master Degree in Physics Engineering at Instituto Superior T\'ecnico (Lisbon, Portugal)}\\
+Passed First class.
+\Sep
+
+\CVSection{Experience}
+\CVItem{2020-today, High Performance Computing analyst at CINECA (Casalecchio di Reno, Italy)}\\
+User support for the Eurofusion project, PI of the project try21 to port the code ECsim to GPU using OpenACC, co-developer of the CUDA version of the XShell code (H2020 ChEESE project), technical referee for PRACE and ISCRA projects, organiser and convener of courses on JuliaLang, C++ and OpenMP, host of HPC-Europa3 projects.
+\SmallSep
+
+\CVItem{2019-2020, Postdoctoral researcher at Instituto Superior T\'ecnico (Lisbon, Portugal)}\\
+Massively parallel numerical simulations based on the Particle-In-Cell technique.
+\SmallSep
+
+\CVItem{2016, Websummit (Lisbon, Portugal)}\\
+Representative of IB hubs. 
+\SmallSep
+
+\CVItem{2006-2007, Visiting researcher at Ruhr-Universit\"{a}t (Bochum, Germany)}\\
+Development of mathematical models to describe waves and instabilities in plasmas. 
+\Sep
+
+\CVSection{Prizes and awards}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Best scientific visualisation ARCHER2 HPC Image and Video Competition, \pounds 250 (2020)
+\item HPC-Europa3 project (2019), 500,000 CPUhours on ARCHER + \pounds 2,000 to visit Lancaster University (Lancaster, UK)
+\item HPC-Europa3 project (2018), 1,250,000 CPUhours on Marconi + \euro 1,500 to visit CINECA (Casalecchio di Reno, Italy)
+\item Best scientific visualisation GoLP Image and Video Competition, \euro 500 (2015)
+\end{compactitem}
+\Sep
+
+\CVSection{Languages}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+\item Hindi (mother tongue)
+\item English (C1)
+\item Portuguese (A2)
+\item Italian (A2)
+\end{compactitem}
+\Sep
+
+\CVSection{Publications}
+For the full list of publications, please refer to my Google Scholar profile:\\ 
+\url{https://scholar.google.com/citations?user=Fs_mg34AAAAJ&hl=pt-PT}.\\ 
+
+%\Sep
+
+%% References
+%\CVSection{References}
+%References upon request.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
