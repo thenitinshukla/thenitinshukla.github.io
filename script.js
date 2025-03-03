@@ -729,7 +729,7 @@ document.addEventListener('DOMContentLoaded', function() {
 `,
 
             date: "May 12, 2020",
-            category: "Plasma Physics",
+            category: "physics",
             featured: false,
             imageUrl: "images/GRBs.jpg",
             readTime: "5 min read",
