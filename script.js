@@ -459,11 +459,91 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "hpc",
             featured: true,
             imageUrl: "images/EuroHPC.png",
-            readTime: "7 min read",
+            readTime: "4 min read",
             author: "Nitin Shukla"
         },
+
         {
             id: 4,
+            title: "GPU Architecture Basics: Understanding the Heart of Modern GPUs",
+            excerpt: "A detailed look at the architecture of modern GPUs, including key components like CUDA cores, Tensor Cores, and memory hierarchy.",
+            content: `<p>
+            Modern GPUs are powerhouses of computation, capable of handling massive workloads in parallel.
+            But how do they work under the hood? This blog post takes a deep dive into the architecture of modern GPUs, 
+            exploring key components like CUDA cores, Tensor Cores, and the memory hierarchy that make them so efficient.
+            </p>
+            
+            <h3>Core Structure</h3>
+            
+            <p><strong>Streaming Multiprocessors (SMs) / Compute Units (CUs) </strong></p>
+
+            <p>SMs (NVIDIA) or CUs (AMD) are the building blocks of a GPU. Each SM contains:</p>
+
+            <ol>
+                <li><strong>CUDA Cores/Stream Processors:</strong> Basic computation units executing arithmetic operations.</li>
+                <li><strong>Registers:</strong> Fast memory storage for active threads.</li>
+                <li><strong>Shared Memory/L1 Cache:</strong> Low-latency memory shared among cores in an SM.</li>
+                <li><strong>Warp Schedulers:</strong> Manage thread execution, dispatching instructions to cores.</li>
+            </ol>
+
+
+            <h3>Memory Hierarchy</h3>
+            
+            <p>GPUs have a specialized memory system separate from the CPU’s main memory, optimized for high-bandwidth access and parallel workloads. The key levels are:</p>
+
+            <ol
+                <li><strong>Global Memory (GDDR/HBM):</strong> High-bandwidth, off-chip memory (e.g., GDDR6, HBM2) for large datasets. HBM offers superior bandwidth via 3D stacking.</li>
+                <li><strong>Shared Memory:</strong> On-chip memory for thread collaboration within a block, enabling rapid data sharing.</li>
+                <li><strong>Registers:</strong> Per-thread storage offering the fastest access.</li>
+                <li><strong>L2 Cache:</strong> Shared across SMs, reducing global memory access latency.</li>
+            </ol>
+
+            <h3>Specialized Units</h3>
+
+            <p>Modern GPUs feature specialized units for specific tasks:</p>
+            <ul>
+                <li><strong>Tensor Cores:</strong> Accelerate matrix operations common in deep learning, offering high throughput for mixed-precision calculations.</li>
+                <li><strong>RT Cores:</strong> Ray tracing units for real-time rendering, tracing light paths for realistic graphics.</li>
+                <li><strong>FP64 Units:</strong> Dedicated units for double-precision floating-point calculations, essential for scientific computing.</li>
+            </ul>
+
+
+            <h3> SIMT Execution Model</h3>
+            
+            <p> GPUs use a Single Instruction, Multiple Thread (SIMT) model to execute instructions across threads. </p>
+
+            <h3> Parallel in GPUs</h3>
+            <p> <strong> Thread Hierarchies:</strong> Threads are organized into blocks (groups of threads) and grids (groups of blocks), enabling efficient data sharing and synchronization.
+            Threads are grouped into warps (32 threads each), which execute the same instruction in lockstep. 
+            This allows the GPU to hide memory latency by switching between warps, keeping the cores busy.
+            </p>
+
+            <p> Thread-level parallelism: Multiple threads execute different instructions simultaneously.</p>
+            <p> Instruction-level parallelism: Multiple instructions are executed in parallel within a thread.</p>
+            <p> Data-level parallelism: Operations are performed on multiple data elements simultaneously.</p>
+            <p> Task-level parallelism: Multiple tasks are executed concurrently across threads.</p>
+
+            <h3> Conclusion</h3>
+
+            <p> GPUs are complex beasts, with intricate architectures designed to handle massive parallel workloads efficiently.
+            Understanding the core components like CUDA cores, memory hierarchy, and specialized units is key to optimizing performance in GPU-accelerated applications. 
+            This architecture makes GPUs indispensable for modern computing tasks requiring high throughput,
+            distinguishing them from CPUs and enabling their dominance in fields like gaming, AI, and scientific simulations.
+            This architecture makes GPUs indispensable for modern computing tasks requiring high throughput, distinguishing them from CPUs 
+            and enabling their dominance in fields like gaming, AI, and scientific simulations.
+            </p>
+            
+            `,
+            date: "August 10, 2022",
+            category: "hpc",
+            featured: true,
+            imageUrl: "images/gpu-architecture.jpg",
+            readTime: "3 min read",
+            author: "Nitin Shukla"
+        },
+
+        {
+            id: 5,
             title: "Parallelization Strategies for Modern Scientific Codes",
             excerpt: "Effective parallelization is essential for maximizing performance on today's multicore systems. This post explores different strategies and their applications.",
             content: `<p>In the world of scientific computing, the ability to perform complex simulations and analyze vast datasets hinges on one critical factor: speed.
@@ -575,15 +655,15 @@ document.addEventListener('DOMContentLoaded', function() {
             Parallelization is the linchpin of modern scientific computing, unlocking the power of multicore systems, GPUs, and clusters. By mastering levels of parallelism—distributed memory, shared memory, SIMD, and accelerators—and blending them into hybrid models, researchers can push computational boundaries. Tailoring strategies to specific domains and optimizing for performance factors like load balancing and data locality further amplify results.
             
             `,
-            date: "November 20, 2022",
+            date: "November 20, 2021",
             category: "hpc",
             featured: false,
             imageUrl: "images/hpc.png",
-            readTime: "10 min read",
+            readTime: "5 min read",
             author: "Nitin Shukla"
         },
         {
-            id: 5,
+            id: 6,
             title: "What is the fireball beam, and why does it matter so much to us?",
             excerpt: "Plasma instabilities play a crucial role in many astrophysical phenomena. This post discusses recent developments in modeling these complex behaviors.",
             content: `<p>Understanding plasma instabilities is fundamental to explaining various astrophysical processes. Recent computational advances have significantly improved our ability to model these complex phenomena.</p>
