@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             `,
             date: "August 10, 2022",
-            category: "Technology",
+            category: "tech",
             featured: true,
             imageUrl: "images/gpu-architecture.jpg",
             readTime: "3 min read",
