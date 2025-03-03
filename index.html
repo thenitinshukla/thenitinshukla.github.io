@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 order-lg-2 order-1 text-center mb-lg-0 mb-4">
-                        <img src="nitin.jpg" class="img-fluid profile-image" alt="Profile">
+                        <img src="images/nitin.jpg" class="img-fluid profile-image" alt="Profile">
                     </div>
                 </div>
             </div>
@@ -288,40 +288,139 @@
             </div>
         </section>
         
-        <section id="blog" class="section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Blog</h2>
-                    <p class="section-subtitle">Thoughts and insights</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="blog-card">
-                            <div class="blog-card-header">
-                                <h4 class="blog-card-title">GPU Programming Guide</h4>
-                                <p class="blog-card-date">January 2025</p>
-                            </div>
-                            <div class="blog-card-body">
-                                <p>A comprehensive guide to leveraging GPU technology for scientific computing applications</p>
-                                <a href="https://nikshukla07.medium.com/gpu-programming-guide-8f9e282a764a" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
+      
+           <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Blog</h2>
+                <p class="section-subtitle">Thoughts and insights on plasma physics, high-performance computing, and more</p>
+            </div>
+            
+            <!-- Blog Filters and Search -->
+            <div class="blog-controls">
+                <div class="blog-controls-row">
+                    <div class="blog-control-item">
+                        <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="blogSearch" class="search-input" placeholder="Search posts...">
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="blog-card">
-                            <div class="blog-card-header">
-                                <h4 class="blog-card-title">Why Flops Aren’t Everything in GPU Computing?</h4>
-                                <p class="blog-card-date"> February 2025</p>
+                    <div class="blog-control-item">
+                        <select id="categoryFilter" class="category-select">
+                            <option value="all">All Categories</option>
+                            <option value="hpc">High-Performance Computing</option>
+                            <option value="physics">Plasma Physics</option>
+                            <option value="tech">Technology</option>
+                            <option value="research">Research Updates</option>
+                        </select>
+                    </div>
+                    <div class="blog-control-item">
+                        <div class="view-toggle">
+                            <button id="gridViewBtn" class="view-toggle-btn active"><i class="fas fa-th-large"></i></button>
+                            <button id="listViewBtn" class="view-toggle-btn"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Grid View (Default) -->
+            <div id="gridView">
+                <div class="blog-grid" id="blogPosts">
+                    <!-- Blog posts will be dynamically inserted here -->
+                </div>
+                
+                <!-- Pagination -->
+                <div class="blog-pagination">
+                    <ul class="pagination" id="pagination">
+                        <!-- Pagination will be dynamically generated -->
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Blog List View with Sidebar -->
+            <div id="listView" style="display: none;">
+                <div class="blog-container">
+                    <div class="blog-main">
+                        <div id="blogPostsList">
+                            <!-- List view blog posts here -->
+                        </div>
+                        
+                        <!-- List Pagination -->
+                        <div class="blog-pagination">
+                            <ul class="pagination" id="listPagination">
+                                <!-- List pagination will be dynamically generated -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-sidebar">
+                        <div class="sidebar-section">
+                            <h4 class="sidebar-title">Featured Posts</h4>
+                            <div id="featuredPosts">
+                                <!-- Featured posts will be dynamically inserted here -->
                             </div>
-                            <div class="blog-card-body">
-                                <p>Explore why raw performance metrics don’t tell the full story </p>
-                                <a href="https://nikshukla07.medium.com/gpu-programming-guide-2-db39cbea2d5b" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h4 class="sidebar-title">Categories</h4>
+                            <div class="category-tags" id="categoryTags">
+                                <!-- Category tags will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h4 class="sidebar-title">Archive</h4>
+                            <div class="archive-links" id="archiveLinks">
+                                <!-- Archive links will be dynamically inserted here -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Blog Post Modal -->
+    <div class="modal-overlay" id="blogModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <span id="modalDate"></span>
+                        <span class="modal-category" id="modalCategory"></span>
+                    </div>
+                </div>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="/placeholder.svg" alt="">
+                </div>
+                <div class="modal-text" id="modalContent">
+                    <!-- Blog content will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="blog-share">
+                    <span class="share-text">Share:</span>
+                    <a href="#" class="share-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="share-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="blog-navigation">
+                    <button class="nav-button" id="prevPostBtn" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="nav-button" id="nextPostBtn" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     </div>
 
     <footer class="bg-light py-4 mt-5">
