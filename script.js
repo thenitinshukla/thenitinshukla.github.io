@@ -1221,3 +1221,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the blog
     initBlog();
 });
+
+// News code
+// Show/Hide News Items Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggleNewsBtn');
+    const hiddenNews = document.querySelectorAll('.hidden-news');
+    
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            // Toggle visibility of hidden news items
+            hiddenNews.forEach(item => {
+                if (item.classList.contains('hidden-news')) {
+                    item.classList.remove('hidden-news');
+                    item.classList.add('visible-news');
+                    // Add fade-in animation
+                    item.style.opacity = 0;
+                    setTimeout(() => {
+                        item.style.opacity = 1;
+                        item.style.transition = 'opacity 0.5s ease';
+                    }, 10);
+                } else {
+                    item.classList.add('hidden-news');
+                    item.classList.remove('visible-news');
+                }
+            });
+            
+            // Toggle button text
+            if (toggleBtn.textContent === 'Show More') {
+                toggleBtn.textContent = 'Show Less';
+            } else {
+                toggleBtn.textContent = 'Show More';
+                
+                // Scroll back to the news section when collapsing
+                document.getElementById('news').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+    
+    // Fix for browsers that don't support :has selector
+    // Apply class-based border colors
+    const newsItems = document.querySelectorAll('.news-item');
+    newsItems.forEach(item => {
+        const badge = item.querySelector('.news-badge');
+        const content = item.querySelector('.news-content');
+        
+        if (badge && content) {
+            if (badge.classList.contains('conference')) {
+                content.classList.add('conference-border');
+            } else if (badge.classList.contains('hackathon')) {
+                content.classList.add('hackathon-border');
+            } else if (badge.classList.contains('summer-school')) {
+                content.classList.add('summer-school-border');
+            } else if (badge.classList.contains('workshop')) {
+                content.classList.add('workshop-border');
+            }
+        }
+    });
+});
