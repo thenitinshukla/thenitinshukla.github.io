@@ -1248,8 +1248,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Toggle button text
-            if (toggleBtn.textContent === 'Show Less') {
-                toggleBtn.textContent = 'Show More';
+            if (toggleBtn.textContent === 'Show More') {
+                toggleBtn.textContent = 'Show Less';
             } else {
                 toggleBtn.textContent = 'Show More';
                 
