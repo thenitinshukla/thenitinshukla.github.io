@@ -13,12 +13,62 @@
     <nav class="top-nav">
         <div class="container-fluid">
             <div class="nav-container">
-                <a href="#hero" class="logo">
-                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="14" fill="#000"/>
-                        <text x="9" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="900" fill="#fff">NS</text>
-                    </svg>
-                </a>
+               <a href="#hero" class="logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#4F46E5" />
+                <stop offset="100%" stopColor="#06B6D4" />
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="0.8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+        </defs>
+        
+        <!-- Base shape - octagon representing computation nodes -->
+        <path 
+            d="M16 4L24.5 8L28 16L24.5 24L16 28L7.5 24L4 16L7.5 8L16 4Z" 
+            fill="#111827" 
+            stroke="url(#techGradient)" 
+            strokeWidth="1.5"
+        />
+        
+        <!-- Central node -->
+        <circle cx="16" cy="16" r="3" fill="url(#techGradient)" filter="url(#glow)" />
+        
+        <!-- Connection lines representing computation/data flow -->
+        <path d="M16 13V7" stroke="url(#techGradient)" strokeWidth="1" strokeDasharray="1 1" />
+        <path d="M16 25V19" stroke="url(#techGradient)" strokeWidth="1" strokeDasharray="1 1" />
+        <path d="M13 16H7" stroke="url(#techGradient)" strokeWidth="1" strokeDasharray="1 1" />
+        <path d="M25 16H19" stroke="url(#techGradient)" strokeWidth="1" strokeDasharray="1 1" />
+        
+        <!-- Orbital elements suggesting physics/plasma -->
+        <ellipse 
+            cx="16" 
+            cy="16" 
+            rx="8" 
+            ry="3" 
+            stroke="white" 
+            strokeWidth="0.5" 
+            strokeOpacity="0.6" 
+            fill="none" 
+            transform="rotate(45 16 16)" 
+        />
+        <ellipse 
+            cx="16" 
+            cy="16" 
+            rx="8" 
+            ry="3" 
+            stroke="white" 
+            strokeWidth="0.5" 
+            strokeOpacity="0.6" 
+            fill="none" 
+            transform="rotate(-45 16 16)" 
+        />
+    </svg>
+</a>
+                
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
