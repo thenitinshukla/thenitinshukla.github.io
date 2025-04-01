@@ -1222,63 +1222,173 @@ document.addEventListener('DOMContentLoaded', function() {
     initBlog();
 });
 
-// News code
-// Show/Hide News Items Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const toggleBtn = document.getElementById('toggleNewsBtn');
-    const hiddenNews = document.querySelectorAll('.hidden-news');
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const newsItems = document.querySelectorAll('.news-item');
     
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-            // Toggle visibility of hidden news items
-            hiddenNews.forEach(item => {
-                if (item.classList.contains('hidden-news')) {
-                    item.classList.remove('hidden-news');
-                    item.classList.add('visible-news');
-                    // Add fade-in animation
-                    item.style.opacity = 0;
-                    setTimeout(() => {
-                        item.style.opacity = 1;
-                        item.style.transition = 'opacity 0.5s ease';
-                    }, 10);
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Show/hide news items based on filter
+            newsItems.forEach(item => {
+                if (filter === 'all') {
+                    item.style.display = 'flex';
                 } else {
-                    item.classList.add('hidden-news');
-                    item.classList.remove('visible-news');
+                    const categories = item.getAttribute('data-categories').split(' ');
+                    if (categories.includes(filter)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
                 }
             });
-            
-            // Toggle button text
-            if (toggleBtn.textContent === 'Show More') {
-                toggleBtn.textContent = 'Show Less';
+        });
+    });
+    
+    // Search functionality
+    const searchInput = document.getElementById('newsSearch');
+    
+    searchInput.addEventListener('keyup', function() {
+        const searchValue = this.value.toLowerCase();
+        
+        newsItems.forEach(item => {
+            const description = item.querySelector('.news-description').textContent.toLowerCase();
+            if (description.includes(searchValue)) {
+                item.style.display = 'flex';
             } else {
-                toggleBtn.textContent = 'Show More';
-                
-                // Scroll back to the news section when collapsing
-                document.getElementById('news').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                item.style.display = 'none';
             }
         });
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const newsItems = document.querySelectorAll('.news-item');
+    const newsItemsContainer = document.querySelector('.news-items');
+    
+    // Set initial visible items count
+    const initialVisibleItems = 4;
+    let isExpanded = false;
+    
+    // Add "Show More/Less" button
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'btn btn-outline-dark show-more-btn mt-4';
+    toggleButton.textContent = 'Show More';
+    toggleButton.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+    newsItemsContainer.parentNode.insertBefore(toggleButton, newsItemsContainer.nextSibling);
+    
+    // Function to update visible items
+    function updateVisibleItems(filter = 'all', searchTerm = '') {
+        let visibleCount = 0;
+        let totalMatchingItems = 0;
+        
+        newsItems.forEach((item, index) => {
+            // Check if item matches filter and search criteria
+            const categories = item.getAttribute('data-categories').split(' ');
+            const description = item.querySelector('.news-description').textContent.toLowerCase();
+            const matchesFilter = filter === 'all' || categories.includes(filter);
+            const matchesSearch = searchTerm === '' || description.includes(searchTerm);
+            
+            // Item should be visible in current filter/search
+            const isVisible = matchesFilter && matchesSearch;
+            
+            if (isVisible) {
+                totalMatchingItems++;
+                // Show item if within visible count or if expanded
+                if (isExpanded || visibleCount < initialVisibleItems) {
+                    item.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        // Update toggle button text and visibility
+        toggleButton.innerHTML = isExpanded ? 
+            'Show Less <i class="fas fa-chevron-up"></i>' : 
+            'Show More <i class="fas fa-chevron-down"></i>';
+        
+        // Hide toggle button if all items are visible initially
+        toggleButton.style.display = totalMatchingItems <= initialVisibleItems ? 'none' : 'block';
     }
     
-    // Fix for browsers that don't support :has selector
-    // Apply class-based border colors
-    const newsItems = document.querySelectorAll('.news-item');
-    newsItems.forEach(item => {
-        const badge = item.querySelector('.news-badge');
-        const content = item.querySelector('.news-content');
+    // Initialize
+    updateVisibleItems();
+    
+    // Toggle button click handler
+    toggleButton.addEventListener('click', function() {
+        isExpanded = !isExpanded;
         
-        if (badge && content) {
-            if (badge.classList.contains('conference')) {
-                content.classList.add('conference-border');
-            } else if (badge.classList.contains('hackathon')) {
-                content.classList.add('hackathon-border');
-            } else if (badge.classList.contains('summer-school')) {
-                content.classList.add('summer-school-border');
-            } else if (badge.classList.contains('workshop')) {
-                content.classList.add('workshop-border');
-            }
+        // Get current active filter
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+        const searchTerm = document.getElementById('newsSearch').value.toLowerCase();
+        
+        updateVisibleItems(activeFilter, searchTerm);
+        
+        // Smooth scroll to button if collapsing
+        if (!isExpanded) {
+            const newsSection = document.getElementById('news');
+            newsSection.scrollIntoView({ behavior: 'smooth' });
         }
+    });
+    
+    // Filter button click handler
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Reset expanded state when changing filters
+            isExpanded = false;
+            
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            const searchTerm = document.getElementById('newsSearch').value.toLowerCase();
+            
+            updateVisibleItems(filter, searchTerm);
+        });
+    });
+    
+    // Search functionality
+    const searchInput = document.getElementById('newsSearch');
+    const searchBtn = document.getElementById('searchBtn');
+    
+    function handleSearch() {
+        const searchValue = searchInput.value.toLowerCase();
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+        
+        // Reset expanded state when searching
+        isExpanded = false;
+        
+        updateVisibleItems(activeFilter, searchValue);
+    }
+    
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    });
+    
+    searchBtn.addEventListener('click', handleSearch);
+    
+    // Add animation class to news items
+    newsItems.forEach(item => {
+        item.classList.add('news-item-animated');
     });
 });
