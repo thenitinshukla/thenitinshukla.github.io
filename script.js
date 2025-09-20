@@ -52,11 +52,11 @@ function loadResearchMetrics() {
     } else {
             // Fallback data since no real API is available
             const fallbackData = {
-                    citations: 827,
+                    citations: 830,
                     publications: 35,
                     hIndex: 15,
                     citationYears: [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
-                    citationsPerYear: [7, 19, 16, 20, 23, 28, 22, 13, 40, 49, 51, 60, 61, 65, 51, 84, 77, 92, 57]
+                    citationsPerYear: [7, 19, 16, 20, 23, 28, 22, 13, 40, 49, 51, 60, 61, 65, 51, 84, 77, 94, 58]
             };
             localStorage.setItem("scholarData", JSON.stringify(fallbackData));
             localStorage.setItem("lastFetchTime", currentTime);
@@ -1392,4 +1392,5 @@ document.addEventListener('DOMContentLoaded', function() {
         item.classList.add('news-item-animated');
     });
 });
+
 
