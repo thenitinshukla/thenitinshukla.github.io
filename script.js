@@ -52,11 +52,11 @@ function loadResearchMetrics() {
     } else {
             // Fallback data since no real API is available
             const fallbackData = {
-                    citations: 900,
+                    citations: 902,
                     publications: 40,
                     hIndex: 15,
                     citationYears: [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026],
-                    citationsPerYear: [7, 19, 16, 19, 23, 29, 20, 13, 39, 49, 52, 58, 61, 64, 53, 82, 80, 87, 90, 31]
+                    citationsPerYear: [7, 19, 16, 19, 23, 29, 20, 13, 39, 49, 52, 58, 61, 64, 53, 82, 80, 87, 90, 33]
             };
             localStorage.setItem("scholarData", JSON.stringify(fallbackData));
             localStorage.setItem("lastFetchTime", currentTime);
